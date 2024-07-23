@@ -5,6 +5,7 @@ import 'package:spotifyclone/common/widgets/button/basic_app_button.dart';
 import 'package:spotifyclone/core/config/assets/app_images.dart';
 import 'package:spotifyclone/core/config/assets/app_vector.dart';
 import 'package:spotifyclone/core/config/theme/app_colors.dart';
+import 'package:spotifyclone/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -15,14 +16,23 @@ class GetStartedPage extends StatelessWidget {
         body: Stack(
       children: [
         Container(
-          padding:
-            const  EdgeInsetsDirectional.symmetric(vertical: 40, horizontal: 40),
+          padding: const EdgeInsetsDirectional.symmetric(
+              vertical: 40, horizontal: 40),
           decoration: const BoxDecoration(
               image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(
                     AppImages.introBG,
                   ))),
+        ),
+        Container(
+          color: Colors.black.withOpacity(0.15),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 40,
+            horizontal: 40,
+          ),
           child: Column(
             children: [
               Align(
@@ -38,21 +48,27 @@ class GetStartedPage extends StatelessWidget {
               ),
               const SizedBox(height: 25),
               const Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.',
+                'Welcome to Spotify, your ultimate music companion! Discover, stream, and share a world of music at your fingertips. Dive into millions of tracks, curated playlists, and personalized recommendations. Let the music journey begin!',
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
                     color: AppColors.gray),
-                    textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
               ),
-            const  SizedBox(height: 20),
-            BasicAppButton(onPressed: (){}, title: 'Get Started',)
+              const SizedBox(height: 20),
+              BasicAppButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const ChooseModePage()));
+                },
+                title: 'Get Started',
+              )
             ],
           ),
         ),
-        Container(
-          color: Colors.black.withOpacity(0.15),
-        )
       ],
     ));
   }
