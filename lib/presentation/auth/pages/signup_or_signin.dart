@@ -6,6 +6,7 @@ import 'package:spotifyclone/common/widgets/button/basic_app_button.dart';
 import 'package:spotifyclone/core/config/assets/app_images.dart';
 import 'package:spotifyclone/core/config/assets/app_vector.dart';
 import 'package:spotifyclone/core/config/theme/app_colors.dart';
+import 'package:spotifyclone/presentation/auth/pages/signup.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});
@@ -47,11 +48,13 @@ class SignupOrSigninPage extends StatelessWidget {
                     const SizedBox(
                       height: 21,
                     ),
-                     Text(
+                    Text(
                       "Spotify is a proprietary Swedish audio streaming and media services provider ",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color:context.isDarkMode? AppColors.gray:Color.fromARGB(255, 124, 124, 124),
+                          color: context.isDarkMode
+                              ? AppColors.gray
+                              : Color.fromARGB(255, 124, 124, 124),
                           fontSize: 17),
                       textAlign: TextAlign.center,
                     ),
@@ -63,7 +66,14 @@ class SignupOrSigninPage extends StatelessWidget {
                         Expanded(
                             flex: 1,
                             child: BasicAppButton(
-                                onPressed: () {}, title: 'Register')),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const SignupPage()));
+                                },
+                                title: 'Register')),
                         const SizedBox(
                           width: 30,
                         ),
@@ -71,12 +81,14 @@ class SignupOrSigninPage extends StatelessWidget {
                           flex: 1,
                           child: TextButton(
                               onPressed: () {},
-                              child:  Text(
+                              child: Text(
                                 'Sign In',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
-                                    color:context.isDarkMode ? Colors.white: Colors.black),
+                                    color: context.isDarkMode
+                                        ? Colors.white
+                                        : Colors.black),
                               )),
                         )
                       ],
