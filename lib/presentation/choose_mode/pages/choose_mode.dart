@@ -1,8 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotifyclone/common/widgets/button/basic_app_button.dart';
@@ -58,7 +55,7 @@ class ChooseModePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         context.read<ThemeCubit>()
-                            .UpdateTheme(ThemeMode.dark);
+                            .updateTheme(ThemeMode.dark);
                       },
                       child: ClipOval(
                         child: BackdropFilter(
@@ -94,7 +91,7 @@ class ChooseModePage extends StatelessWidget {
                        onTap: () {
                         context
                             .read<ThemeCubit>()
-                            .UpdateTheme(ThemeMode.light);
+                            .updateTheme(ThemeMode.light);
                       },
                       child: ClipOval(
                         child: BackdropFilter(
