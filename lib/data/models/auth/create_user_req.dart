@@ -9,3 +9,4 @@ class CreateUserReq {
     required this.password,
   });
 }
+   
